@@ -13,7 +13,7 @@ def print_game_board(game_board):      # Функция для печати иг
     for i, row in enumerate(game_board):
         print(i, ' '.join(row), end='\n')
 
-def get_valid_number(prompt):
+def get_valid_number(prompt): # Функция для проверки ввода
     while True:
         value = input(prompt)
 
@@ -42,7 +42,7 @@ def make_move(player, symbol):  # Функция для выполнения х�
         else:
             print("Эта клетка уже занята. Попробуйте снова.")
 
-def check_winner(board):
+def check_winner(board): # Функция для проверки победителя
     # Диагонали
     if board[0][0] == board[1][1] == board[2][2] != '-':
         return True
@@ -58,13 +58,13 @@ def check_winner(board):
 
     return False
 
-def check_draw(board):
+def check_draw(board): # Функция для проверки ничей
     for row in board:
         if '-' in row:
             return False
     return True
 
-while True:
+while True: # Цикл игры со всеми функциями
     print_game_board(game_board)
 
     make_move(players[current_player], symbols[current_player])
